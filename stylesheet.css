@@ -1,0 +1,27 @@
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+#container {
+  width: 100%;
+}
+
+.button {
+  font-size: 1em;
+  text-align: center;
+  width: 15%;
+  color: #555;
+  background: #d9d9d9;
+  padding: .750em;
+  border: solid .01em silver;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: #bbb;
+}
+
+.button:focus {
+  outline: none;
+}
