@@ -44,7 +44,7 @@ function onLoadFunc(){
 }
 
 function onerrorFunc(){
-   printListItem("Oh No! Something went wrong.");
+   console.log("Oh No! Something went wrong.");
 }
 
 function printListItem(text) {
@@ -73,7 +73,7 @@ function geoError(){
 }
 
 function getLocation(locObj) {
-  let weatherUri = `https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?lat=${locObj.lat}&lon={locObj.lon}&APPID=d5b26f410d1b0a1c12c2685df46b4327&units=imperial`
+  let weatherUri = `https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?lat=${locObj.lat}&lon=${locObj.lon}&APPID=d5b26f410d1b0a1c12c2685df46b4327&units=imperial`
     console.log(weatherUri)
 
   let request = new XMLHttpRequest()
