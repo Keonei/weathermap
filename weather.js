@@ -2,14 +2,15 @@ console.log("Lets Weather!")
 
 const londonUrl = "https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?lat=51.5074&lon=0.1278&APPID=d5b26f410d1b0a1c12c2685df46b4327&units=imperial"
 const seattleUrl = "https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?lat=47.6762&lon=-122.3182&APPID=d5b26f410d1b0a1c12c2685df46b4327&units=imperial"
+const imgUrl = "http://openweathermap.org/img/w/"
 
 function seattleWeather() {
-  document.getElementById("content").innerHTML = ""
+  document.getElementById("city").innerHTML = ""
   	console.log("Seattle!")
   // append output to html
   let h2 = document.createElement("h2")
   h2.innerHTML = "Seattle:"
-  document.getElementById("content").appendChild(h2)
+  document.getElementById("city").appendChild(h2)
 
   let request = new XMLHttpRequest();
   request.open("GET", seattleUrl, true)
@@ -19,12 +20,12 @@ function seattleWeather() {
 }
 
 function londonWeather() {
-  document.getElementById("content").innerHTML = ""
+  document.getElementById("city").innerHTML = ""
   	console.log("London!")
   // append output to html
   let h2 = document.createElement("h2")
   h2.innerHTML = "London:"
-  document.getElementById("content").appendChild(h2)
+  document.getElementById("city").appendChild(h2)
 
   let request = new XMLHttpRequest();
   request.open("GET", londonUrl, true)
@@ -37,10 +38,23 @@ function onLoadFunc(){
   const resp = JSON.parse(this.response);
   console.log(resp);
 
-  printListItem("Conditions: " + resp.weather[0].main);
+  // printListItem("Conditions: " + resp.weather[0].main);
   printListItem("Current: " + resp.main.temp + "&#8457;");
   printListItem("Highs: " + resp.main.temp_max + "&#8457;");
   printListItem("Lows: " + resp.main.temp_min + "&#8457;");
+  printListItem("Winds: " + resp.wind.speed);
+
+  if (resp.wind) {
+        var knots = resp.wind.speed * 1.9438445;
+        $("#wind-text").html(knots.toFixed(1) + " Knots");
+      }
+
+  if (resp.weather) {
+    var imgURL = "http://openweathermap.org/img/w/" + resp.weather[0].icon + ".png";
+    console.log(imgURL)
+    $("#weatherImg").attr("src", imgURL);
+    $("#weather-text").html(resp.weather[0].description);
+  }
 }
 
 function onerrorFunc(){
@@ -50,15 +64,15 @@ function onerrorFunc(){
 function printListItem(text) {
   let p = document.createElement("p")
   p.innerHTML = text
-  document.getElementById("content").appendChild(p)
+  document.getElementById("city").appendChild(p)
 }
 
 function myWeather() {
-  document.getElementById("content").innerHTML = ""
+  document.getElementById("city").innerHTML = ""
     console.log("Where am I?")
   let h2 = document.createElement("h2")
   h2.innerHTML = "Your location:"
-  document.getElementById("content").appendChild(h2)
+  document.getElementById("city").appendChild(h2)
 
   navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
 }
