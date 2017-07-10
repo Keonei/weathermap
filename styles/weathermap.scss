@@ -3,12 +3,29 @@
 
 body {
   font-family: "Montserrat", sans-serif;
+  color: white;
   display: flex;
+  width: 100vw;
   height: 100vh;
 }
 
 #container {
   width: 100%;
+}
+
+.day {
+  background-color: ‎#87ceeb;
+}
+
+.night {
+  background-color: #1e2d59;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
 }
 
 .button {
@@ -29,4 +46,23 @@ body {
 
 .button:focus {
   outline: none;
+}
+
+#city {
+  letter-spacing: .05em;
+  align-items: center;
+  text-align: center;
+}
+
+#current-conditions {
+  margin-top: 1em;
+  letter-spacing: .05em;
+  text-align: center;
+  border-top: solid .1em white;
+  border-bottom: solid .1em white;
+}
+
+#today-conditions {
+  margin-top: 1em;
+  letter-spacing: .05em;
 }

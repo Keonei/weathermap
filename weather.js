@@ -4,12 +4,24 @@ const londonUrl = "https://cors-anywhere.herokuapp.com/api.openweathermap.org/da
 const seattleUrl = "https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?lat=47.6762&lon=-122.3182&APPID=d5b26f410d1b0a1c12c2685df46b4327&units=imperial"
 const imgUrl = "http://openweathermap.org/img/w/"
 
+var currentTime = new Date().getHours();
+if (7 <= currentTime && currentTime < 20) {
+    if (document.body) {
+        document.body.className = "day";
+    }
+}
+else {
+    if (document.body) {
+        document.body.className = "night";
+    }
+}
+
 function seattleWeather() {
   document.getElementById("city").innerHTML = ""
   	console.log("Seattle!")
   // append output to html
   let h2 = document.createElement("h2")
-  h2.innerHTML = "Seattle:"
+  h2.innerHTML = "Seattle"
   document.getElementById("city").appendChild(h2)
 
   let request = new XMLHttpRequest();
@@ -24,7 +36,7 @@ function londonWeather() {
   	console.log("London!")
   // append output to html
   let h2 = document.createElement("h2")
-  h2.innerHTML = "London:"
+  h2.innerHTML = "London"
   document.getElementById("city").appendChild(h2)
 
   let request = new XMLHttpRequest();
@@ -38,22 +50,21 @@ function onLoadFunc(){
   const resp = JSON.parse(this.response);
   console.log(resp);
 
-  // printListItem("Conditions: " + resp.weather[0].main);
-  printListItem("Current: " + resp.main.temp + "&#8457;");
-  printListItem("Highs: " + resp.main.temp_max + "&#8457;");
-  printListItem("Lows: " + resp.main.temp_min + "&#8457;");
-  printListItem("Winds: " + resp.wind.speed);
+  listCity(resp.weather[0].main);
 
-  if (resp.wind) {
-        var knots = resp.wind.speed * 1.9438445;
-        $("#wind-text").html(knots.toFixed(1) + " Knots");
-      }
+  listCurrent("Currently " + resp.weather[0].description + "\xa0and\xa0" + resp.main.temp + "&#8457;");
+  listConditions("Highs: " + resp.main.temp_max + "&#8457;");
+  listConditions("Lows: " + resp.main.temp_min + "&#8457;");
+  listConditions("Winds: " + resp.wind.speed);
+
+  // if (resp.wind) {
+  //       var knots = resp.wind.speed * 1.9438445;
+  //       $("#wind-text").html(knots.toFixed(1) + " Knots");
+  //     }
 
   if (resp.weather) {
     var imgURL = "http://openweathermap.org/img/w/" + resp.weather[0].icon + ".png";
-    console.log(imgURL)
     $("#weatherImg").attr("src", imgURL);
-    $("#weather-text").html(resp.weather[0].description);
   }
 }
 
@@ -61,17 +72,29 @@ function onerrorFunc(){
    console.log("Oh No! Something went wrong.");
 }
 
-function printListItem(text) {
+function listCity(text) {
   let p = document.createElement("p")
   p.innerHTML = text
   document.getElementById("city").appendChild(p)
+}
+
+function listCurrent(text) {
+  let p = document.createElement("p")
+  p.innerHTML = text
+  document.getElementById("current-conditions").appendChild(p)
+}
+
+function listConditions(text) {
+  let p = document.createElement("p")
+  p.innerHTML = text
+  document.getElementById("today-conditions").appendChild(p)
 }
 
 function myWeather() {
   document.getElementById("city").innerHTML = ""
     console.log("Where am I?")
   let h2 = document.createElement("h2")
-  h2.innerHTML = "Your location:"
+  h2.innerHTML = "Your location"
   document.getElementById("city").appendChild(h2)
 
   navigator.geolocation.getCurrentPosition(geoSuccess, geoError);

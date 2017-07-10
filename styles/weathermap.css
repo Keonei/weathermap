@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ==========================================================================
    Normalize.scss settings
    ========================================================================== */
@@ -373,13 +374,33 @@ th {
 
 body {
   font-family: "Montserrat", sans-serif;
+  color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100vw;
   height: 100vh; }
 
 #container {
   width: 100%; }
+
+.day {
+  background-color: ‎ #87ceeb; }
+
+.night {
+  background-color: #1e2d59; }
+
+.button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1em; }
 
 .button {
   font-size: 1em;
@@ -398,5 +419,23 @@ body {
 
 .button:focus {
   outline: none; }
+
+#city {
+  letter-spacing: .05em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center; }
+
+#current-conditions {
+  margin-top: 1em;
+  letter-spacing: .05em;
+  text-align: center;
+  border-top: solid .1em white;
+  border-bottom: solid .1em white; }
+
+#today-conditions {
+  margin-top: 1em;
+  letter-spacing: .05em; }
 
 /*# sourceMappingURL=weathermap.css.map */
