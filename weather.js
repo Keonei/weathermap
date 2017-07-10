@@ -87,7 +87,7 @@ function listCurrent(text) {
 function listConditions(text) {
   let p = document.createElement("p")
   p.innerHTML = text
-  document.getElementById("today-conditions").appendChild(p)
+  document.getElementById("today").appendChild(p)
 }
 
 function myWeather() {
