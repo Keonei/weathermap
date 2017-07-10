@@ -1,20 +1,22 @@
 console.log("Lets Weather!")
 
+window.onload = function() {
+  var currentTime = new Date().getHours();
+    if (7 <= currentTime && currentTime < 20) {
+      if (document.body) {
+          document.body.className = "day";
+        }
+      }
+      else {
+        if (document.body) {
+          document.body.className = "night";
+        }
+      }
+}
+
 const londonUrl = "https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?lat=51.5074&lon=0.1278&APPID=d5b26f410d1b0a1c12c2685df46b4327&units=imperial"
 const seattleUrl = "https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?lat=47.6762&lon=-122.3182&APPID=d5b26f410d1b0a1c12c2685df46b4327&units=imperial"
 const imgUrl = "http://openweathermap.org/img/w/"
-
-var currentTime = new Date().getHours();
-if (7 <= currentTime && currentTime < 20) {
-    if (document.body) {
-        document.body.className = "day";
-    }
-}
-else {
-    if (document.body) {
-        document.body.className = "night";
-    }
-}
 
 function seattleWeather() {
   document.getElementById("city").innerHTML = ""
