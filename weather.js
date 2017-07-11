@@ -63,7 +63,7 @@ function onLoadFunc(){
   //       var knots = resp.wind.speed * 1.9438445;
   //       $("#wind-text").html(knots.toFixed(1) + " Knots");
   //     }
-
+ 
   if (resp.weather) {
     var imgURL = "http://openweathermap.org/img/w/" + resp.weather[0].icon + ".png";
     $("#weatherImg").attr("src", imgURL);
