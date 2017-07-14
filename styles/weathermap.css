@@ -374,6 +374,7 @@ th {
 body {
   font-family: "Montserrat", sans-serif;
   color: white;
+  font-weight: lighter;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -384,10 +385,12 @@ body {
   width: 100%; }
 
 .day {
-  background-color: #87CEEB; }
+  background-color: #87CEEB;
+  height: 100%; }
 
 .night {
-  background-color: #1E2D59; }
+  background-color: #1E2D59;
+  height: 100%; }
 
 .button-container {
   display: -webkit-box;
@@ -404,7 +407,7 @@ body {
 .button {
   font-size: 1em;
   text-align: center;
-  width: 15%;
+  width: 12em;
   color: #555;
   background: #D9D9D9;
   padding: .750em;
@@ -412,12 +415,14 @@ body {
   cursor: pointer;
   -webkit-transition: 0.3s;
   transition: 0.3s; }
+  .button:hover {
+    background-color: #BBB; }
+  .button:focus {
+    outline: none; }
 
-.button:hover {
-  background-color: #BBB; }
-
-.button:focus {
-  outline: none; }
+#content {
+  max-width: 36em;
+  margin: 0 auto; }
 
 #city {
   letter-spacing: .05em;
@@ -427,11 +432,12 @@ body {
   text-align: center; }
 
 #current-conditions {
-  margin-top: 1em;
+  font-size: 1.25em;
   letter-spacing: .05em;
   text-align: center;
-  border-top: solid .1em white;
-  border-bottom: solid .1em white; }
+  margin-top: 1em;
+  border-top: solid .01em white;
+  border-bottom: solid .01em white; }
   #current-conditions p {
     margin: .5em; }
 

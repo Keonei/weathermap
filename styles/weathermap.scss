@@ -4,6 +4,7 @@
 body {
   font-family: "Montserrat", sans-serif;
   color: white;
+  font-weight: lighter;
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -15,10 +16,12 @@ body {
 
 .day {
   background-color:#87CEEB;
+  height: 100%;
 }
 
 .night {
   background-color:#1E2D59;
+  height: 100%;
 }
 
 .button-container {
@@ -31,21 +34,25 @@ body {
 .button {
   font-size: 1em;
   text-align: center;
-  width: 15%;
+  width: 12em;
   color: #555;
   background: #D9D9D9;
   padding: .750em;
   border: solid .01em silver;
   cursor: pointer;
   transition: 0.3s;
+
+  &:hover {
+    background-color: #BBB;
+  }
+  &:focus {
+    outline: none;
+  }
 }
 
-.button:hover {
-  background-color: #BBB;
-}
-
-.button:focus {
-  outline: none;
+#content {
+  max-width: 36em;
+  margin: 0 auto;
 }
 
 #city {
@@ -55,16 +62,16 @@ body {
 }
 
 #current-conditions {
-  margin-top: 1em;
+  font-size: 1.25em;
   letter-spacing: .05em;
   text-align: center;
-  border-top: solid .1em white;
-  border-bottom: solid .1em white;
+  margin-top: 1em;
+  border-top: solid .01em white;
+  border-bottom: solid .01em white;
 
   p {
     margin: .5em;
   }
-
 }
 
 #today {

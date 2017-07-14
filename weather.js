@@ -3,13 +3,13 @@ console.log("Lets Weather!")
 window.onload = function() {
   var currentTime = new Date().getHours();
     if (7 <= currentTime && currentTime < 20) {
-      if (document.body) {
-          document.body.className = "day";
+      if (document.getElementById("content")) {
+          document.getElementById("content").className = "day";
         }
       }
       else {
-        if (document.body) {
-          document.body.className = "night";
+        if (document.getElementById("content")) {
+          document.getElementById("content").className = "night";
         }
       }
 }
@@ -56,18 +56,18 @@ function onLoadFunc(){
 
   listCurrent("Currently " + resp.weather[0].description + "\xa0and\xa0" + resp.main.temp + "&#8457;");
   listConditions("Highs: " + resp.main.temp_max + "&#8457;");
-  listConditions("Lows: " + resp.main.temp_min + "&#8457;");
-  listConditions("Winds: " + resp.wind.speed);
+  listConditions("Lows: " + resp.main.temp_min + "&#8457;" + "<br/>" + "<br/>");
+  listConditions("Winds: " + resp.wind.speed + "<br/>" + "<br/>");
+  listConditions("Sunrise: " + resp.sys.sunrise);
+  listConditions("Sunset: " + resp.sys.sunset);
 
-  // if (resp.wind) {
-  //       var knots = resp.wind.speed * 1.9438445;
-  //       $("#wind-text").html(knots.toFixed(1) + " Knots");
-  //     }
- 
   if (resp.weather) {
     var imgURL = "http://openweathermap.org/img/w/" + resp.weather[0].icon + ".png";
     $("#weatherImg").attr("src", imgURL);
   }
+
+  
+
 }
 
 function onerrorFunc(){
@@ -91,6 +91,16 @@ function listConditions(text) {
   p.innerHTML = text
   document.getElementById("today").appendChild(p)
 }
+
+function listForcast(text) {
+  let ul = document.createElement("ul");
+    let li = document.createElement("li");
+      li.innerHTML = text
+
+      ul.appendChild(li)
+      document.getElementById("week").appendChild(ul)
+}
+
 
 function myWeather() {
   document.getElementById("city").innerHTML = ""
@@ -121,3 +131,7 @@ function getLocation(locObj) {
 	request.onerror = onerrorFunc
 	request.send()
 }
+
+function clearThis(target){
+        target.value= "";
+    }
