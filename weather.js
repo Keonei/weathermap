@@ -65,9 +65,6 @@ function onLoadFunc(){
     var imgURL = "http://openweathermap.org/img/w/" + resp.weather[0].icon + ".png";
     $("#weatherImg").attr("src", imgURL);
   }
-
-  
-
 }
 
 function onerrorFunc(){
@@ -81,6 +78,7 @@ function listCity(text) {
 }
 
 function listCurrent(text) {
+  document.getElementById("current-conditions").innerHTML = ""
   let p = document.createElement("p")
   p.innerHTML = text
   document.getElementById("current-conditions").appendChild(p)
