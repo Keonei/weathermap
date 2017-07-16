@@ -5,27 +5,33 @@ body {
   font-family: "Montserrat", sans-serif;
   color: white;
   font-weight: lighter;
-  display: flex;
+  display: $display;
+  background-color: $color-bg-4;
+  background-image: url(../images/lake-22-trail.JPG);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   width: 100vw;
   height: 100vh;
 }
 
 #container {
-  width: 100%;
+  width: $size;
 }
 
 .day {
   background-color:#87CEEB;
-  height: 100%;
+  height: $size;
 }
 
 .night {
   background-color:#1E2D59;
-  height: 100%;
+  height: $size;
 }
 
+// @each $button,
 .button-container {
-  display: flex;
+  display: $display;
   justify-content: center;
   align-items: center;
   margin-bottom: 1em;
@@ -36,23 +42,76 @@ body {
   text-align: center;
   width: 12em;
   color: #555;
-  background: #D9D9D9;
+  background: $color-grey-1;
   padding: .750em;
   border: solid .01em silver;
   cursor: pointer;
   transition: 0.3s;
 
-  &:hover {
-    background-color: #BBB;
-  }
-  &:focus {
-    outline: none;
-  }
+    &:hover {
+      background-color: $color-grey-2;
+    }
+    &:focus {
+      outline: none;
+    }
+    // &:active {
+    //   background-image: $image;
+    // }
 }
+
+// @each $container in $button-event {
+//   .#{container} {
+//
+//     $image: nth(2);
+//     $color: nth(1);
+//
+//       background-color: $color;
+//       background: url($image) no-repeat center fixed;
+//       background-size: contain;
+//
+//       // &:active {
+//       //   background-image: $active;
+//       // }
+//   }
+// }
+
+.seattle {
+  background-color: $color-bg-1;
+  background-image: url(..images/night-skyline-seattle.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+}
+
+.london {
+  background-color: $color-bg-2;
+  background-image: url(..images/streets-of-london-at-night.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.myLocation {
+  background-color: $color-bg-3;
+  background-image: url(..images/white-river-falls.JPG);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+// .default {
+//   background-color: #FFFFCC;
+//   background-image: url(..images/lake-22-trail.JPG);
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   background-size: contain;
+// }
 
 #content {
   max-width: 36em;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 #city {

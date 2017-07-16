@@ -378,6 +378,11 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  background-color: #FFFFCC;
+  background-image: url(../images/lake-22-trail.JPG);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   width: 100vw;
   height: 100vh; }
 
@@ -416,13 +421,35 @@ body {
   -webkit-transition: 0.3s;
   transition: 0.3s; }
   .button:hover {
-    background-color: #BBB; }
+    background-color: #BBBBBB; }
   .button:focus {
     outline: none; }
 
+.seattle {
+  background-color: #999999;
+  background-image: url(..images/night-skyline-seattle.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; }
+
+.london {
+  background-color: #CC3300;
+  background-image: url(..images/streets-of-london-at-night.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; }
+
+.myLocation {
+  background-color: #669900;
+  background-image: url(..images/white-river-falls.JPG);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; }
+
 #content {
   max-width: 36em;
-  margin: 0 auto; }
+  margin: 0 auto;
+  overflow: hidden; }
 
 #city {
   letter-spacing: .05em;
