@@ -133,8 +133,9 @@ body {
   }
 }
 
-#today {
+#high, #low, #winds, #sunrise, #sunset {
   margin-top: 1em;
   letter-spacing: .05em;
   text-align: center;
+  line-height: 1em;
 }

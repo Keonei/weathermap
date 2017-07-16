@@ -21,6 +21,7 @@ const imgUrl = "http://openweathermap.org/img/w/"
 function seattleWeather() {
   document.getElementById("city").innerHTML = ""
   	console.log("Seattle!")
+  document.body.style.backgroundImage = "url('images/night-skyline-seattle.jpg')";
   // append output to html
   let h2 = document.createElement("h2")
   h2.innerHTML = "Seattle"
@@ -36,6 +37,7 @@ function seattleWeather() {
 function londonWeather() {
   document.getElementById("city").innerHTML = ""
   	console.log("London!")
+    document.body.style.backgroundImage = "url('images/streets-of-london-at-night.jpg')";
   // append output to html
   let h2 = document.createElement("h2")
   h2.innerHTML = "London"
@@ -55,11 +57,11 @@ function onLoadFunc(){
   listCity(resp.weather[0].main);
 
   listCurrent("Currently " + resp.weather[0].description + "\xa0and\xa0" + resp.main.temp + "&#8457;");
-  listConditions("Highs: " + resp.main.temp_max + "&#8457;");
-  listConditions("Lows: " + resp.main.temp_min + "&#8457;" + "<br/>" + "<br/>");
-  listConditions("Winds: " + resp.wind.speed + "<br/>" + "<br/>");
-  listConditions("Sunrise: " + resp.sys.sunrise);
-  listConditions("Sunset: " + resp.sys.sunset);
+  listHigh("Highs: " + resp.main.temp_max + "&#8457;");
+  listLow("Lows: " + resp.main.temp_min + "&#8457;" + "<br/>" + "<br/>");
+  listWinds("Winds: " + resp.wind.speed + "<br/>" + "<br/>");
+  listSunrise("Sunrise: " + resp.sys.sunrise);
+  listSunset("Sunset: " + resp.sys.sunset);
 
   if (resp.weather) {
     var imgURL = "http://openweathermap.org/img/w/" + resp.weather[0].icon + ".png";
@@ -84,11 +86,41 @@ function listCurrent(text) {
   document.getElementById("current-conditions").appendChild(p)
 }
 
-function listConditions(text) {
+function listHigh(text) {
+  document.getElementById("high").innerHTML = ""
   let p = document.createElement("p")
   p.innerHTML = text
-  document.getElementById("today").appendChild(p)
+  document.getElementById("high").appendChild(p)
 }
+
+function listLow(text) {
+  document.getElementById("low").innerHTML = ""
+  let p = document.createElement("p")
+  p.innerHTML = text
+  document.getElementById("low").appendChild(p)
+}
+
+function listWinds(text) {
+  document.getElementById("winds").innerHTML = ""
+  let p = document.createElement("p")
+  p.innerHTML = text
+  document.getElementById("winds").appendChild(p)
+}
+
+function listSunrise(text) {
+  document.getElementById("sunrise").innerHTML = ""
+  let p = document.createElement("p")
+  p.innerHTML = text
+  document.getElementById("sunrise").appendChild(p)
+}
+
+function listSunset(text) {
+  document.getElementById("sunset").innerHTML = ""
+  let p = document.createElement("p")
+  p.innerHTML = text
+  document.getElementById("sunset").appendChild(p)
+}
+
 
 function listForcast(text) {
   let ul = document.createElement("ul");
@@ -103,6 +135,8 @@ function listForcast(text) {
 function myWeather() {
   document.getElementById("city").innerHTML = ""
     console.log("Where am I?")
+  document.body.style.backgroundImage = "url('images/white-river-falls.JPG')";
+
   let h2 = document.createElement("h2")
   h2.innerHTML = "Your location"
   document.getElementById("city").appendChild(h2)

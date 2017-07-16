@@ -468,9 +468,10 @@ body {
   #current-conditions p {
     margin: .5em; }
 
-#today {
+#high, #low, #winds, #sunrise, #sunset {
   margin-top: 1em;
   letter-spacing: .05em;
-  text-align: center; }
+  text-align: center;
+  line-height: 1em; }
 
 /*# sourceMappingURL=weathermap.css.map */
