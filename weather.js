@@ -144,6 +144,18 @@ function myWeather() {
   navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
 }
 
+function reset(){
+  document.getElementById("current-conditions").innerHTML = ""
+  document.getElementById("city").innerHTML = ""
+  document.getElementById("high").innerHTML = ""
+  document.getElementById("low").innerHTML = ""
+  document.getElementById("winds").innerHTML = ""
+  document.getElementById("sunset").innerHTML = ""
+  document.getElementById("sunrise").innerHTML = ""
+
+  document.body.style.backgroundImage = "url('images/lake-22-trail.JPG')";
+}
+
 function geoSuccess(position){
   const newPos = {lat: position.coords.latitude, lon: position.coords.longitude};
   getLocation(newPos);

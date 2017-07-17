@@ -6,7 +6,7 @@ body {
   color: white;
   font-weight: lighter;
   display: $display;
-  background-color: $color-bg-4;
+  background-color: $black;
   background-image: url(../images/lake-22-trail.JPG);
   background-repeat: no-repeat;
   background-position: center;
@@ -29,7 +29,6 @@ body {
   height: $size;
 }
 
-// @each $button,
 .button-container {
   display: $display;
   justify-content: center;
@@ -37,76 +36,97 @@ body {
   margin-bottom: 1em;
 }
 
-.button {
+.cityBtn {
   font-size: 1em;
   text-align: center;
   width: 12em;
-  color: #555;
-  background: $color-grey-1;
   padding: .750em;
   border: solid .01em silver;
   cursor: pointer;
   transition: 0.3s;
 
-    &:hover {
-      background-color: $color-grey-2;
-    }
     &:focus {
       outline: none;
     }
-    // &:active {
-    //   background-image: $image;
-    // }
 }
 
-// @each $container in $button-event {
-//   .#{container} {
+@each $cities, $colors in $city-map {
+  .#{$cities} {
+
+    $default: nth($colors, 1);
+    $hover: nth($colors, 2);
+    $active: nth($colors, 3);
+
+    background-color: $default;
+    color: $active;
+
+    &:hover,
+    &focus {
+      background-color: $hover;
+    }
+
+    &:active {
+      background-color: $active;
+    }
+  }
+}
+
+// .seattle {
+//   background-color: #666666;
+//   color: #999999;
 //
-//     $image: nth(2);
-//     $color: nth(1);
+//     &:hover,
+//     &focus {
+//       background-color: #BBBBBB;
+//     }
 //
-//       background-color: $color;
-//       background: url($image) no-repeat center fixed;
-//       background-size: contain;
+//     &:active {
+//       background-color: #999999;
+//     }
+// }
 //
-//       // &:active {
-//       //   background-image: $active;
-//       // }
-//   }
+// .london {
+//   background-color: #666666;
+//   color: #CC0000;
+//
+//     &:hover,
+//     &focus {
+//       background-color: #660000;
+//     }
+//
+//     &:active {
+//       background-color: #CC0000;
+//     }
+// }
+//
+// .current {
+//   background-color: #666666;
+//   color: #999966;
+//
+//     &:hover,
+//     &focus {
+//       background-color: #666633;
+//     }
+//
+//     &:active {
+//       background-color: #999966;
+//     }
+// }
+//
+// .reset {
+//   background-color: #666666;
+//   color: #999999;
+//
+//     &:hover,
+//     &focus {
+//       background-color: #333333;
+//     }
+//
+//     &:active {
+//       background-color: #999999;
+//     }
 // }
 
-.seattle {
-  background-color: $color-bg-1;
-  background-image: url(..images/night-skyline-seattle.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-
-}
-
-.london {
-  background-color: $color-bg-2;
-  background-image: url(..images/streets-of-london-at-night.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-
-.myLocation {
-  background-color: $color-bg-3;
-  background-image: url(..images/white-river-falls.JPG);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-
-// .default {
-//   background-color: #FFFFCC;
-//   background-image: url(..images/lake-22-trail.JPG);
-//   background-repeat: no-repeat;
-//   background-position: center;
-//   background-size: contain;
-// }
 
 #content {
   max-width: 36em;
@@ -138,4 +158,9 @@ body {
   letter-spacing: .05em;
   text-align: center;
   line-height: 1em;
+  border-bottom: solid .01em;
+
+  &:nth-child(3n+1) {
+    border-bottom: none;
+  }
 }

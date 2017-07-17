@@ -10,9 +10,10 @@
   <body>
     <div id="container">
       <div class="button-container">
-        <button type="button" class="button" onclick="seattleWeather()" onfocus="clearThis(this)">Seattle</button><!--
-        --><button type="button" class="button" onclick="londonWeather()" onfocus="clearThis(this)">London</button><!--
-        --><button type="button" class="button" onclick="myWeather()" onfocus="clearThis(this)">My Location</button>
+        <button class="cityBtn seattle" onclick="seattleWeather()" onfocus="clearThis(this)">Seattle</button><!--
+        --><button class="cityBtn london" onclick="londonWeather()" onfocus="clearThis(this)">London</button><!--
+        --><button class="cityBtn current" onclick="myWeather()" onfocus="clearThis(this)">My Location</button><!--
+        --><button class="cityBtn reset" onclick="reset()" onfocus="clearThis(this)">Reset</button>
       </div>
     <div id="content">
       <div class="row">
